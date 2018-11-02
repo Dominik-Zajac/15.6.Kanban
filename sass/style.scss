@@ -1,0 +1,169 @@
+@import "variables";
+@import "mixins";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  margin: 0 auto;
+  background-color: #202a34;
+  text-transform: uppercase;
+  outline: none;
+}
+
+/* ---------- Extend rule ---------- */
+.button {
+  color: #FFF;
+  opacity: 0.6;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.4s ease-in-out;
+  background-color: rgba(255,255,255,0);
+}
+
+/* ---------- Styles of all boards ---------- */
+.board {
+  @include spacing(80px, 20px);
+
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-direction: column;
+  text-align: center;
+
+  max-width: 50%;
+  min-height: 100vh;
+
+  background-color: #0f1a25;
+  border-radius: 5px;
+  box-shadow: 0px 0px 30px 36px rgba(15,26,37,0.71);
+  h1 {
+    @include text($main-font, 35px, 700);
+    
+    color: #FFF;
+  }  
+  .create-board {
+    @include size(180px, 80px);
+    @include text($buttons-font, 18px, 300);
+    @extend .button;
+
+    margin-right: 8px;
+    border: 3px solid #30ae6e;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .create-column {
+    @include size(180px, 80px);
+    @include text($buttons-font, 18px, 300);
+    @extend .button;
+    
+    margin: 0 auto;
+    border: 3px solid #30ae6e;
+    &:hover {
+      opacity: 1;
+    } 
+  }
+}
+
+/* ---------- Column ---------- */
+.column-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  .column {
+    @include spacing(15px, 20px);
+
+    border: 1px dashed #4bbec0;
+  }
+  h2 {
+    @include text($main-font, 30px, 700);
+    
+    color: #4bbec0;
+  } 
+  .column-card-list {
+    @include spacing(0px, 0px);
+   
+    display: flex;
+    flex-direction: column;
+
+    list-style-type: none;
+    cursor: pointer;
+  }
+  .add-card {
+    @include size(80px, 60px);
+    @include text($buttons-font, 14px, 300);
+    @extend .button;
+   
+    padding: 10px;
+    border: 3px solid #30ae6e;
+    &:hover {
+      opacity: 1;
+    } 
+  }
+  .btn-delete-column {
+    @include size(80px, 60px);
+    @include spacing(10px, 10px);
+    @include text($buttons-font, 14px, 300);
+    @extend .button;
+
+    border: 3px solid #ec4054;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+/* ---------- Card ---------- */    
+.card {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  text-align: center;
+
+  padding: 15px;
+  &:hover {
+    background: #4bbec0;
+    background-color: rgba(75,190,192,0.1);
+    transition: all 0.4s ease-in-out;
+  }
+  p {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    text-transform: none;
+    color: #FFF;
+  }
+  .btn-delete-card {
+    @include size(120px, 40px);
+    @include spacing(10px, 10px);
+    @include text($buttons-font, 12px, 300);
+    @extend .button;
+
+    border: 3px solid #ec4054;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+/* ---------- New board ---------- */
+.btn-delete-board {
+  @include size(180px, 80px);
+  @include spacing(10px, 10px);
+  @include text($buttons-font, 18px, 300);
+  @extend .button;
+  
+  
+  border: 3px solid #ec4054;
+  &:hover {
+    opacity: 1;
+  }
+}
