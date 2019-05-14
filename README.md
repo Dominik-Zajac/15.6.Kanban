@@ -1,1 +1,1 @@
-https://wyrafinowany.github.io/15.6.Kanban/
+https://dominik-zajac.github.io/15.6.Kanban/
